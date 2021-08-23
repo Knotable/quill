@@ -149,10 +149,10 @@
     "trailingComma": "all"
   },
   "scripts": {
-    "prepare": "npm run build && webpack --config _develop/webpack.config.js --env.minimize",
     "build": "npm run lint && npm run build:webpack",
     "build:webpack": "webpack --config _develop/webpack.config.js; rm dist/quill.core dist/quill.bubble dist/quill.snow",
     "build:release": "./_develop/scripts/release.sh",
+    "build:custom": "npm run build:webpack && webpack --config _develop/webpack.config.js --env.minimize",
     "develop": "npm run start",
     "lint": "eslint blots core formats modules themes ui test",
     "start": "npm run build:webpack; bundle exec foreman start -f _develop/procfile",
